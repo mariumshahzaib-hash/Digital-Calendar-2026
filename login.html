@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Digital Planner 2026</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <div class="flower">🌸</div>
+    <div class="flower">🌺</div>
+    <div class="flower">🌼</div>
+    <div class="flower">🌷</div>
+
+    <div class="container">
+        <div class="form-box" id="loginForm">
+            <div class="logo">
+                <span class="logo-emoji">✨</span>
+            </div>
+            <h2>Welcome Back</h2>
+            <form>
+                <div class="form-grou">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" id="loginUsername" placeholder="Enter your username">
+                    <span class="error" id="loginUsernameError">Username is required</span>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password">
+                    <span class="error" id="loginPasswordError">Password is required</span>
+                </div>
+                <button id="userLogin" type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <div class="switch-text">
+                Don't have an account? <a class="switch-link" href="./signup.html">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="module" src="./login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</html>

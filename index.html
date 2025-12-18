@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Planner 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="sparkle"></div>
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <h2>2026 Planner</h2>
+            <nav>
+                <button class="nav-item active" onclick="showView('home')">
+                    <span>🏠</span> Home
+                </button>
+                <button class="nav-item" onclick="showView('monthly')">
+                    <span>📅</span> Monthly
+                </button>
+                <button class="nav-item" onclick="showView('daily')">
+                    <span>📖</span> Daily
+                </button>
+                <button class="nav-item" onclick="showView('goals')">
+                    <span>🎯</span> Goals
+                </button>
+            </nav>
+        </div>
+
+        <div class="main-content">
+            <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+            <div id="home" class="view active">
+                <div class="hero">
+                    <h1>2026</h1>
+                    <p style="font-size: 24px; margin: 16px 0;">Plan to Flourish ✨</p>
+                    <p>Your digital space for mindful planning and growth</p>
+                </div>
+
+                <div class="home-cards">
+                    <button class="home-card" onclick="showView('monthly')">
+                        <div class="emoji">📅</div>
+                        <h3>Monthly Calendar</h3>
+                        <p style="color: #666;">View and plan your month</p>
+                    </button>
+                    <button class="home-card" onclick="showView('daily')">
+                        <div class="emoji">📖</div>
+                        <h3>Daily Journal</h3>
+                        <p style="color: #666;">Track your day-to-day</p>
+                    </button>
+                    <button class="home-card" onclick="showView('goals')">
+                        <div class="emoji">🎯</div>
+                        <h3>Goals & Vision</h3>
+                        <p style="color: #666;">Set your aspirations</p>
+                    </button>
+                </div>
+            </div>
+
+            <div id="monthly" class="view">
+                <div class="card">
+                    <div class="calendar-header">
+                        <button class="calendar-nav" onclick="changeMonth(-1)">‹</button>
+                        <h2 id="monthTitle">January 2026</h2>
+                        <button class="calendar-nav" onclick="changeMonth(1)">›</button>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="calendar-day">Sun</div>
+                        <div class="calendar-day">Mon</div>
+                        <div class="calendar-day">Tue</div>
+                        <div class="calendar-day">Wed</div>
+                        <div class="calendar-day">Thu</div>
+                        <div class="calendar-day">Fri</div>
+                        <div class="calendar-day">Sat</div>
+                    </div>
+                    <div class="calendar-grid" id="calendarDates"></div>
+                </div>
+            </div>
+
+            <div id="daily" class="view">
+                <div class="card">
+                    <h2 id="dailyTitle">Daily Journal</h2>
+
+                    <div class="form-group">
+                        <label>Today's Focus</label>
+                        <input type="text" id="focus" placeholder="What's your main priority today?">
+                    </div>
+
+                    <div class="form-group">
+                        <label><span class="icon-small">✨</span>My Affirmation of the Day</label>
+                        <input type="text" id="affirmation" placeholder="I am capable, I am strong...">
+                    </div>
+
+                    <div class="form-group">
+                        <label><span class="icon-small">👁️</span>My Visualization of the Day</label>
+                        <textarea id="visualization" rows="4" placeholder="Visualize your perfect day..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Schedule & Notes</label>
+                        <textarea id="schedule" rows="5" placeholder="Plan your day..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Habit Tracker</label>
+                        <div class="habit-grid" id="habitGrid"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><span class="icon-small">💖</span>Self-Care Checklist</label>
+                        <div class="selfcare-grid" id="selfcareGrid"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gratitude Journal</label>
+                        <textarea id="gratitude" rows="4" placeholder="What are you grateful for today?"></textarea>
+                    </div>
+
+                    <div class="discipline-box">
+                        <label><span class="icon-small">🏆</span>Discipline Challenge</label>
+                        <p style="color: #666; margin: 8px 0;" id="disciplineChallenge">Set your challenge in Goals &
+                            Vision</p>
+                        <button class="discipline-btn" id="disciplineBtn" onclick="toggleDiscipline()">
+                            Mark Challenge Complete
+                        </button>
+                        <div class="streak" id="streakDisplay">Streak: 0 days</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="goals" class="view">
+                <div class="card">
+                    <h2>2026 Goals & Vision</h2>
+
+                    <div class="form-group">
+                        <label>Yearly Goals</label>
+                        <textarea id="yearlyGoals" rows="5"
+                            placeholder="What do you want to achieve in 2026?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Monthly Goals</label>
+                        <textarea id="monthlyGoals" rows="4"
+                            placeholder="What do you want to accomplish this month?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Weekly Goals</label>
+                        <textarea id="weeklyGoals" rows="4" placeholder="What's on your agenda this week?"></textarea>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 style="color: #7FB8E8;">Vision Board</h2>
+                    <p style="color: #666; margin-bottom: 16px;">Create your vision for 2026. Describe your dreams and
+                        aspirations.</p>
+                    <textarea id="visionBoard" rows="8" placeholder="My dream life in 2026 looks like..."></textarea>
+                </div>
+
+                <div class="card">
+                    <h2 style="color: #FF9A76;"><span class="icon-small">🏆</span>Discipline Challenge</h2>
+                    <p style="color: #666; margin-bottom: 16px;">Set a daily discipline challenge. Track your
+                        consistency!</p>
+                    <input type="text" id="disciplineChallengeInput"
+                        placeholder="e.g., Wake up at 6 AM, 10 min meditation...">
+                    <div
+                        style="background: linear-gradient(135deg, #FFF5F0 0%, #FFEAD6 100%); border-radius: 16px; padding: 24px; margin-top: 24px;">
+                        <h3 style="margin-bottom: 8px;">Your Progress</h3>
+                        <div style="font-size: 32px; font-weight: bold; color: #FF9A76;" id="totalStreak">0 Days
+                            Completed</div>
+                        <p style="color: #666; margin-top: 8px;">Keep going! Consistency is key!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-sparkle">✨</div>
+        <div class="footer-sparkle">⭐</div>
+        <div class="footer-sparkle">💫</div>
+        <div class="footer-sparkle">🌟</div>
+        
+        <div class="footer-wave"></div>
+        
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://readstore.pk/cdn/shop/files/Beconhouse-School-System_420x.jpg?v=1669397768" alt="Beaconhouse School System">
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-text">
+                <div class="footer-title">New Year Greetings 🎊</div>
+                <div class="footer-location">North Nazimabad Campus</div>
+            </div>
+            
+            <div class="footer-year">
+                &copy; 2026 Beaconhouse School System
+            </div>
+        </div>
+    </footer>
+</body>
+<script type="module" src="./app.js"></script>
+
+</html>
