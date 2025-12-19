@@ -1,4 +1,4 @@
-* {* {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -868,4 +868,10 @@ footer::before {
         display: block;
     }
 }
+
+.offcanvas.sidebar {
+    width: 260px;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
 }
+
