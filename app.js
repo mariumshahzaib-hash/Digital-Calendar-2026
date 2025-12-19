@@ -115,27 +115,28 @@ function formatDateKey(date) {
   )}-${String(date.getDate()).padStart(2, "0")}`;
 }
 
-function toggleSidebar() {
-  document.getElementById("sidebar").classList.toggle("hidden");
+function showView(viewName, event) {
+    document.querySelectorAll(".view").forEach(v =>
+        v.classList.remove("active")
+    );
+    document.getElementById(viewName).classList.add("active");
+
+    document.querySelectorAll(".nav-item").forEach(n =>
+        n.classList.remove("active")
+    );
+
+    if (event) {
+        event.target.closest(".nav-item").classList.add("active");
+    }
+
+    if (viewName === "daily") loadDailyData();
+    if (viewName === "goals") loadGoals();
+
+    if (window.innerWidth <= 768) {
+        closeSidebar();
+    }
 }
 
-function showView(viewName) {
-  document
-    .querySelectorAll(".view")
-    .forEach((v) => v.classList.remove("active"));
-  document.getElementById(viewName).classList.add("active");
-
-  document
-    .querySelectorAll(".nav-item")
-    .forEach((n) => n.classList.remove("active"));
-  event.target.closest(".nav-item").classList.add("active");
-
-  if (viewName === "daily") {
-    loadDailyData();
-  } else if (viewName === "goals") {
-    loadGoals();
-  }
-}
 
 function renderCalendar() {
   const container = document.getElementById("calendarDates");
@@ -371,6 +372,35 @@ function saveGoals() {
 ].forEach((id) => {
   document.getElementById(id).addEventListener("input", saveGoals);
 });
+
+
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+
+function toggleSidebar() {
+    sidebar.classList.toggle("show");
+    overlay.classList.toggle("show");
+
+    if (sidebar.classList.contains("show")) {
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "";
+    }
+}
+
+function closeSidebar() {
+    sidebar.classList.remove("show");
+    overlay.classList.remove("show");
+    document.body.style.overflow = "";
+}
+
+
+
+
+const toggleBtn = document.querySelector(".toggle-btn");
+toggleBtn.addEventListener("click" , toggleSidebar)
+
+
 
 window.showView = showView;
 window.toggleSidebar = toggleSidebar;
