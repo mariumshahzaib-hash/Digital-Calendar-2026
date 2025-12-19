@@ -19,27 +19,28 @@
     <div class="sparkle"></div>
     <div class="sparkle"></div>
     <div class="sparkle"></div>
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
     <div class="container">
         <div class="sidebar" id="sidebar">
             <h2>2026 Planner</h2>
             <nav>
-                <button class="nav-item active" onclick="showView('home')">
+                <button class="nav-item active" onclick="showView('home' , event)">
                     <span>🏠</span> Home
                 </button>
-                <button class="nav-item" onclick="showView('monthly')">
+                <button class="nav-item" onclick="showView('monthly' , event)">
                     <span>📅</span> Monthly
                 </button>
-                <button class="nav-item" onclick="showView('daily')">
+                <button class="nav-item" onclick="showView('daily' , event)">
                     <span>📖</span> Daily
                 </button>
-                <button class="nav-item" onclick="showView('goals')">
+                <button class="nav-item" onclick="showView('goals' , event)">
                     <span>🎯</span> Goals
                 </button>
             </nav>
         </div>
 
         <div class="main-content">
-            <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+            <button class="toggle-btn">☰</button>
 
             <div id="home" class="view active">
                 <div class="hero">
@@ -49,17 +50,17 @@
                 </div>
 
                 <div class="home-cards">
-                    <button class="home-card" onclick="showView('monthly')">
+                    <button class="home-card" onclick="showView('monthly' , event)">
                         <div class="emoji">📅</div>
                         <h3>Monthly Calendar</h3>
                         <p style="color: #666;">View and plan your month</p>
                     </button>
-                    <button class="home-card" onclick="showView('daily')">
+                    <button class="home-card" onclick="showView('daily' , event)">
                         <div class="emoji">📖</div>
                         <h3>Daily Journal</h3>
                         <p style="color: #666;">Track your day-to-day</p>
                     </button>
-                    <button class="home-card" onclick="showView('goals')">
+                    <button class="home-card" onclick="showView('goals' , event)">
                         <div class="emoji">🎯</div>
                         <h3>Goals & Vision</h3>
                         <p style="color: #666;">Set your aspirations</p>
